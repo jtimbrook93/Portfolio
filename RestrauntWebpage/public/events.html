@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Siam House</title>
+<meta charset="UTF-8">
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata"> -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<!-- Bootstrap stylingsheets -->
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+<!-- link to systlsheet-->
+<link rel="stylesheet" type="text/css" href="css/stylesheet.css">
+</head>
+<body>
+
+    <!-- Navbar code was obtained from Bootstrap documentation online --> 
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+     </button>
+   </div>
+   <div class="collapse navbar-collapse" id="myNavbar">
+     <ul class="nav navbar-nav">
+       <li class="active"><a href="index.html">HOME</a></li>
+       <li><a href="menu.html">MENU</a></li>
+       <li><a href="news.html">NEWS</a></li>
+       <li><a href="events.html">EVENTS</a></li>
+      <li><a href="aboutUs.html">ABOUT US</a></li>
+      <li><a href="contactUs.html">CONTACT US</a></li>
+
+     </ul>
+       <p class="navbar-text sansserif">Open Mon-Fri 11a-10p, Sat 12p-10p, Sun 12p-9p</p>
+        <p class="navbar-text sannserif">430 E. 4th Street</p>
+     <ul class="nav navbar-nav navbar-right">
+       <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+     </ul>
+   </div>
+ </div>
+</nav>
+
+<div class="container-fluid text-center">
+ <div class="row content">
+   <div class="col-sm-3 sidenav" style="overflow:scroll;">
+       <a class="twitter-timeline" style="max-height:100%; max-width:100%;" href="https://twitter.com/SiamHouse_Thai?ref_src=twsrc%5Etfw">Tweets by SiamHouse_Thai</a>
+
+   </div>
+
+    <div id="eventContainer" class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <h3>Events</h3>
+                <p>Come join us at our next event!</p>
+                <table class="table table-sm" id="eventTable" style="display: block; height: 300px; overflow-y: scroll">
+                    <thead>
+                        <tr>
+                            <th>EventTitle</th>
+                            <th>Date</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody id="eventTableBody">
+                        <tr v-for="event in event">
+                            <td>{{event.title}}</td>
+                            <td>{{event.date}}</td>
+                            <td>{{event.description}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h2 class="text-center text-white mb-4">Admin Login To Add Events</h2>
+                <div class="col-md-4 mx-auto col-centered">
+                    <!-- form card login -->
+                    <div class="card rounded-0">
+                        <div class="card-header">
+                            <h3 class="mb-0"> </h3>
+                        </div>
+                        <div class="card-body">
+                            <form class="form" role="form" autocomplete="off" id="formLogin" novalidate="" method="POST">
+                                <div class="form-group">
+                                    <label for="uname1">Username</label>
+                                    <input type="text" class="form-control form-control-lg rounded-0" name="username" id="username" required="">
+                                    <div class="invalid-feedback">Oops, you missed this one.</div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Password</label>
+                                    <input type="password" class="form-control form-control-lg rounded-0" id="password" required="" autocomplete="new-password">
+                                    <div class="invalid-feedback">Enter your password too!</div>
+                                </div>
+                                <div>
+                                    <label class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input">
+                                        <span class="custom-control-indicator"></span>
+                                        <span class="custom-control-description small text-dark">Remember me on this computer</span>
+                                    </label>
+                                </div>
+                                <!-- for google button that couldnt get to work <div button id="signinButton" class="g-signin2" onclick="validate()"></div> -->
+
+                                <button type="submit" class="g-signin2" id="btnLogin" onclick="validateadmin()">Login</button>
+                            </form>
+                        </div>
+                        <!--/card-block-->
+                    </div>
+                </div>
+                <!-- /form card login -->
+            </div>
+            <!--/row-->
+        </div>
+    </div>
+  </div>
+</div>
+
+    <!-- <script> for google sign in that couldnt get to work
+  $('#signinButton').click(function() {
+    // signInCallback defined in step 6.
+    auth2.grantOfflineAccess().then(signInCallback);
+  });
+</script> -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+
+    <!-- link to our js apps -->
+    <script src="js/event.app.js"></script>
+    <script src="js/adminAuthentication.app.js"></script>
+    <!-- <script> more scripts for google api sign in that couldnt get to work
+function signInCallback(authResult) {
+  if (authResult['code']) {
+
+    // Hide the sign-in button now that the user is authorized, for example:
+    $('#signinButton').attr('style', 'display: none');
+
+    // Send the code to the server
+    $.ajax({
+      type: 'POST',
+      url: 'http://example.com/storeauthcode',
+      // Always include an `X-Requested-With` header in every AJAX request,
+      // to protect against CSRF attacks.
+      headers: {
+        'X-Requested-With': 'XMLHttpRequest'
+      },
+      contentType: 'application/octet-stream; charset=utf-8',
+      success: function(result) {
+        // Handle or verify the server response.
+      },
+      processData: false,
+      data: authResult['code']
+    });
+  } else {
+    // There was an error.
+  }
+}
+</script>
+<a href="events.html" onclick="signOut()">Sign out</a>
+<script>
+  function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
+    });
+  }
+</script> end google api scripts-->
+</body>
+
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Siam House</title>
+<meta charset="UTF-8">
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata"> -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<!-- Bootstrap stylingsheets -->
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+<!-- link to systlsheet-->
+<link rel="stylesheet" type="text/css" href="css/stylesheet.css">
+</head>
+<body>
+
+  <!-- Navbar code was obtained from Bootstrap documentation online -->
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+     </button>
+   </div>
+   <div class="collapse navbar-collapse" id="myNavbar">
+     <ul class="nav navbar-nav">
+       <li class="active"><a href="index.html">HOME</a></li>
+       <li><a href="menu.html">MENU</a></li>
+       <li><a href="news.html">NEWS</a></li>
+       <li><a href="events.html">EVENTS</a></li>
+      <li><a href="aboutUs.html">ABOUT US</a></li>
+      <li><a href="contactUs.html">CONTACT US</a></li>
+
+     </ul>
+       <p class="navbar-text sansserif">Open Mon-Fri 11a-10p, Sat 12p-10p, Sun 12p-9p</p>
+        <p class="navbar-text sannserif">430 E. 4th Street</p>
+     <ul class="nav navbar-nav navbar-right">
+       <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+     </ul>
+   </div>
+ </div>
+</nav>
+
+<div class="container-fluid text-center">
+ <div class="row content">
+   <div id="employeeContainer">
+  <div class="col-sm-6" style="padding-left:0px; padding-right:0px">
+
+               <h3>Employees</h3>
+               <div class="col-sm-6">
+                 <p>View Employee Data</p>
+               </div>
+               <div class="col-sm-6">
+       <!-- Create dropdown to create table by passing the value into our app -->
+             <select class="selectpicker" id="role" @change="roleChange" placeholder="Select Role to Display" v-model="roleValue" >
+               <optgroup label="select role">
+                   <option value="staff">Staff</option>
+                   <option value="admin">Admin</option>
+               </optgroup>
+             </select>
+            </div>
+                  <!-- create employee Table -->
+               <table class="table table-sm" id="employeeTable" style="display: block; height: 350px; overflow-y: scroll">
+                   <thead>
+                       <tr>
+                           <th>Employee ID</th>
+                           <th>First Name</th>
+                           <th>Last Name</th>
+                           <th>Username</th>
+                           <th>Email</th>
+                           <th>Role</th>
+                       </tr>
+                   </thead>
+                   <tbody id="employeeTableBody" >
+                       <tr v-for="employee in employee">
+                           <td>{{employee.employeeid}}</td>
+                           <td>{{employee.first_name}}</td>
+                           <td>{{employee.last_name}}</td>
+                           <td>{{employee.username}}</td>
+                           <td>{{employee.email}}</td>
+                           <td>{{employee.role}}</td>
+                       </tr>
+                   </tbody>
+               </table>
+           </div>
+       </div>
+<!-- create event table -->
+    <div id="eventContainer">
+    <div class="col-sm-6" style="padding-left:0px; padding-right:0px">
+                <h3>Events</h3>
+                <p>View/Change Event Data</p>
+                <table class="table table-sm" id="eventTable">
+                    <thead>
+                        <tr>
+                            <th>Headline</th>
+                            <th>Date</th>
+                            <th>Description</th>
+                            <th>Display?</th>
+                        </tr>
+                    </thead>
+                    <tbody id="eventTableBody" style="height: 300px; overflow-y: scroll">
+                        <tr v-for="eventForAdmin in eventForAdmin">
+                            <td>{{eventForAdmin.title}}</td>
+                            <td>{{eventForAdmin.date}}</td>
+                            <td>{{eventForAdmin.description}}</td>
+                            <td>{{eventForAdmin.display}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- form to create new event -->
+                <form id="newEventForm" @submit.prevent="handleWorkForm()">
+                    <div class="form-group" id="eventForm">
+                        <label for="event">New Event</label>
+                        <input type="text" class="form-control" id="title" placeholder="Enter Title" v-model="eventForm.title">
+                        <input type="text" class="form-control" id="date" placeholder="Enter Date" v-model="eventForm.date">
+                        <input type="text" class="form-control" id="description" placeholder="Enter Description" v-model="eventForm.description">
+                        <input type="text" class="form-control" id="display" placeholder="Display?" v-model="eventForm.display">
+                    </div>
+
+                    <button v-on:submit="handleWorkForm" form="newEventForm" type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <!-- scripts to link event and employee apps -->
+    <script src="js/employee.app.js"></script>
+    <script src="js/event.app.js"></script>
+
+</body>
+
+</html>

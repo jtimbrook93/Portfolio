@@ -1,0 +1,177 @@
+head {
+  	background: #fff url(https://vignette.wikia.nocookie.net/acdc/images/5/50/Wiki-background/revision/latest?cb=20140423111458) no-repeat bottom right;
+}
+body {
+	font: 100% georgia, sans-serif;
+	color: #b2b2b2;
+	background: #fff url(https://vignette.wikia.nocookie.net/acdc/images/5/50/Wiki-background/revision/latest?cb=20140423111458) no-repeat bottom right;
+
+	}
+nav{
+
+   background: url(https://vignette.wikia.nocookie.net/acdc/images/5/50/Wiki-background/revision/latest?cb=20140423111458) no-repeat top left;
+}
+a {
+  color: #cccccc;
+   background: url(https://vignette.wikia.nocookie.net/acdc/images/5/50/Wiki-background/revision/latest?cb=20140423111458) no-repeat top left;
+}
+a:hover{
+  color: #98999b;
+}
+
+.dropdown-menu {
+  background-color: #0000;
+  text-decoration-color: #cccccc;
+}
+
+.dropdown-menu:hover{
+  text-decoration: underline;
+  : #98999b;
+}
+.form-control {
+  background-color: #0000;
+  text-decoration-color: #cccccc;
+  border-color: #444547;
+}
+#button2{
+  background-color: #444547;
+  text-decoration-color: #eaebef;
+  border-color: #444547;
+  color: rgba(100,0,0);
+}
+#button {
+  background-color: #444547;
+  text-decoration-color: #eaebef;
+  border-color: #444547;
+  color: rgba(100,0,0);
+}
+.textSize{
+   font: 50% georgia, sans-serif;
+   background: url(https://vignette.wikia.nocookie.net/acdc/images/5/50/Wiki-background/revision/latest?cb=20140423111458) no-repeat top left;
+}
+.change {
+
+  background: url(https://vignette.wikia.nocookie.net/acdc/images/5/50/Wiki-background/revision/latest?cb=20140423111458) no-repeat top left;
+}
+
+header h1 {
+	background: url(https://vignette.wikia.nocookie.net/acdc/images/5/50/Wiki-background/revision/latest?cb=20140423111458) no-repeat top left;
+	text-decoration-color: rgb(200,0,0);
+	}
+header h2 {
+	background: transparent url(https://vignette.wikia.nocookie.net/acdc/images/5/50/Wiki-background/revision/latest?cb=20140423111458) no-repeat top left;
+  text-decoration-color: rgb(200,0,0);
+	}
+header {
+  text-decoration-color: rgb(200,0,0);
+}
+img {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+
+  }
+
+  .bottom-right {
+    position: absolute;
+    bottom: 8px;
+    right: 16px;
+}
+
+.bottom-left {
+    position: absolute;
+    bottom: 8px;
+    left: 16px;
+}
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+img:hover {
+    box-shadow: 0 0 2px 1px rgba(200, 0,0,0);
+}
+
+input[type=text] {
+    text-decoration-color: #e3e4e8;
+    border-color: #444547;
+
+}
+input[type=string]{
+
+    text-decoration-color: #e3e4e8;
+    border-color: #444547;
+}
+input[type=integer]{
+
+    text-decoration-color: #e3e4e8;
+    border-color: #444547;
+}
+input[type=year]{
+
+    text-decoration-color: #eaebef;
+    border-color: #444547;
+}
+button[type=submit]{
+  background-color: #444547;
+  text-decoration-color: #eaebef;
+  border-color: #444547;
+}
+
+
+th[role=columnheader]:not(.no-sort) {
+	cursor: pointer;
+}
+
+th[role=columnheader]:not(.no-sort):after {
+	content: '';
+
+	float: right;
+
+	margin-top: 7px;
+
+	border-width: 0 4px 4px;
+
+	border-style: solid;
+
+	border-color: #404040 transparent;
+
+	visibility: hidden;
+
+	opacity: 0;
+
+	-ms-user-select: none;
+
+	-webkit-user-select: none;
+
+	-moz-user-select: none;
+
+	user-select: none;
+
+}
+
+th[aria-sort=ascending]:not(.no-sort):after {
+
+	border-bottom: none;
+
+	border-width: 4px 4px 0;
+
+}
+
+th[aria-sort]:not(.no-sort):after {
+
+	visibility: visible;
+
+	opacity: 0.4;
+
+}
+
+th[role=columnheader]:not(.no-sort):hover:after {
+
+	visibility: visible;
+
+	opacity: 1;
+
+}
